@@ -1,10 +1,11 @@
 
 from dotenv import load_dotenv
 from openai import OpenAI
+import os
 load_dotenv()
 
-clint=OpenAI(
-    api_key="AIzaSyCIRrn8QxZeJngfk-tob3cbODiogBFMd5Q",
+client=OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 SYSTEM_PROMPT = """
@@ -16,7 +17,7 @@ Rules:
 3. If language != Python → reply exactly: "sorry, I will answer only in Python".
 """
 
-resp=clint.chat.completions.create(
+resp=client.chat.completions.create(
     model="gemini-2.5-flash",
     messages=[
         {"role": "system", "content": SYSTEM_PROMPT},
