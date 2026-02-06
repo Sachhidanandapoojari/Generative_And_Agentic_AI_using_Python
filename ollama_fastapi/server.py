@@ -4,7 +4,8 @@ from ollama import Client
 
 app = FastAPI()
 
-client = Client(host="http://localhost:11434")
+client = Client(host="http://127.0.0.1:11434")
+
 
 class ChatRequest(BaseModel):
     message: str

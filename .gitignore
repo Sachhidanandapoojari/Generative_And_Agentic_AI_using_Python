@@ -17,7 +17,6 @@ build/
 
 # OS files
 .DS_Store
-weather_agent/
 
 # Environment variables
 .env
