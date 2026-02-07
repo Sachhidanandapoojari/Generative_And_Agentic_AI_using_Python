@@ -193,13 +193,72 @@ raw=" water , milk, coffee, ginger, milk_powder "
 # print(obj.chai_ingredients(raw))
 print(Chai_utils.chai_ingredients(raw))
 
+# class User:
+#     def __init__(self, age):
+#         self._age = age  
 
+#     @property
+#     def age(self):
+#         return self._age
 
+#     @age.setter
+#     def age(self, value):
+#         if value < 0:
+#             raise ValueError("value cannot be negative")
+#         self._age = value
 
+# u = User(25)
+# print(u.age)
 
+class User:
+    def __init__(self,age):
+        self._age=age
     
+    @property
+    def age(self):
+        return self._age
     
+    @age.setter
+    def age(self,value):
+        if value<0:
+            raise ValueError("neg val")
+        self._age=value
+obj=User(25)
+print(obj.age)
+
+class MathUtil:
+    @staticmethod
+    def add(a,b):
+        return a+b
+print(MathUtil.add(2,3))
+
+def ChaiServe(flavor):
+    try:
+        print(f"preparing {flavor} chai")
+        if flavor=="unknown":
+            raise ValueError("unknown value")
+    except ValueError as e:
+            print("error",e)
+    else:
+        print(f"{flavor} chai is served")
+    finally:
+        print("next customer pls")
+ChaiServe("masala")
+ChaiServe("unknown")
+
+#custom exception
+
+class Employee_name_error(Exception):
+    pass
+
+def company(name,city):
+    if name==0 or city==1:
+        raise Employee_name_error("missing name error")
+    print("name is correct")
+company(2,2)
     
+with open("read.txt","w") as file:
+    file.write("This is write file")
 
 
         
